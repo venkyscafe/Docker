@@ -2,15 +2,25 @@ STEP 1: Create greeting.py python file.
 
 STEP 2: Create Dockerfile with FROM, WORKDIR, COPY, RUN, CMD.
 
-STEP 3: run the docker command to build the image from dockerfile -> "docker built -t v3nkys/file-to-image:latest ." (. -> represents the Dockerfile location, in this case its in working directory).
+STEP 3: run the docker command to build the image from dockerfile (./dot represents the Dockerfile location, in this case its in working directory).
 
-STEP 4: run the docker command to execute/run the image on a temporary container -> "docker run v3nkys/file-to-image:latest".
+	-> docker built -t v3nkys/file-to-image:latest .
 
-STEP 5: run the docker command to login -> "docker login -u username" and then enter the password when it prompts
+STEP 4: run the docker command to execute/run the image on a temporary container.
 
-STEP 6: run the docker command to push the image to docker hub -> "docker push v3nkys/file-to-image:latest".
+	-> docker run v3nkys/file-to-image:latest
 
-STEP 7: perform these steps to push the changes to github and enter username/password when prompted
+STEP 5: run the docker command to login and then enter the password when it prompts.
+
+	-> docker login -u username
+
+STEP 6: run the docker command to push the image to docker hub.
+
+	 -> docker push v3nkys/file-to-image:latest
+
+STEP 7: perform these steps to push the changes to github and don't forget that entering username/password is deprecated. Hence creating tokens is adviced.
+
+	-> Settings -> Developer Settings -> Personal access tokens -> Tokens (classic) -> Generate new token (classic) -> Set the NOTE, EXPERIRATION DATE, SELECT SCOPES (avoid selcting admin scopes) -> Generate token (Copy the token and save somewhere, as you won’t be able to see it again!)
 
 	-> git init
 	-> git add .
