@@ -30,4 +30,7 @@ STEP 8: edit .bashrc in your home dir with below changes, to see which branch yo
 	    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w $(parse_git_branch)\$ '
 	fi
 
-STEP 9: change your
+STEP 9: change your global configs to push the code to github under your username otherwise it will be ubuntu
+	o git config --global user.name "username"
+	o git config --global user.email "email_address"
+
