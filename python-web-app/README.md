@@ -53,6 +53,8 @@ Main things to remember are
 	
 		-> python-web-app/devops/demo/templates/demo_site.html
 
+Note : What ever the changes required you can do it on demo_site.html before the image is created from the Dockerfile, post creation of image/container, the changes won't reflect in the final web page, until unless the image is rebuilt.
+
 Step 1: Create Dockerfile with FROM, WORKDIR, COPY, RUN, EXPOSE, ENTRYPOINT
 	
 	-> FROM : using lightweight python image instead of ubuntu
@@ -72,10 +74,12 @@ Step 2: run the docker command to build the image from dockerfile (./dot represe
 Step 3: run the docker command to create the container or to run the image with a temperory container
 	
     -> docker run -it -p 8000:8000 --name <CONTAINER_NAME> <IMAGE_ID>
-								or
+	or
 	-> docker run -d -p 8000:8000 --name <CONTAINER_NAME> <IMAGE_ID>
 	-> docker start <CONTAINER_NAME>
-								or
+	or
 	-> docker run -it -p 8000:8000 <IMAGE_ID>
 	
-Step 4: access the webpage using <EC2_INSTAINCE_IP_ADDRESS>:<PORT_NUMBER>/demo/
+Step 4: access the webpage using the link
+    
+    <EC2_INSTAINCE_IP_ADDRESS>:<PORT_NUMBER>/demo/
