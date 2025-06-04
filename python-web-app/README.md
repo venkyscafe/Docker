@@ -70,7 +70,8 @@ Step 2: run the docker command to build the image from dockerfile (./dot represe
 	-> docker build .
 	
 Step 3: run the docker command to create the container or to run the image with a temperory container
-	-> docker run -it -p 8000:8000 --name <CONTAINER_NAME> <IMAGE_ID>
+	
+    -> docker run -it -p 8000:8000 --name <CONTAINER_NAME> <IMAGE_ID>
 								or
 	-> docker run -d -p 8000:8000 --name <CONTAINER_NAME> <IMAGE_ID>
 	-> docker start <CONTAINER_NAME>
