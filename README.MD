@@ -2,21 +2,21 @@ STEP 1: Create greeting.py python file.
 
 STEP 2: Create Dockerfile with FROM, WORKDIR, COPY, RUN, CMD.
 
-STEP 3: run the docker command to build the image from dockerfile (./dot represents the Dockerfile location, in this case its in working directory).
+STEP 3: run the docker command to build the image from dockerfile (./dot represents the Dockerfile location, in this case its in current directory).
 
-	-> docker built -t v3nkys/file-to-image:latest .
+	-> docker built -t <USERNAME>/<IMAGE_NAME>:<TAG_NAME> .
 
 STEP 4: run the docker command to execute/run the image on a temporary container.
 
-	-> docker run v3nkys/file-to-image:latest
+	-> docker run <USERNAME>/<IMAGE_NAME>:<TAG_NAME>
 
 STEP 5: run the docker command to login and then enter the password when it prompts.
 
-	-> docker login -u username
+	-> docker login -u <USERNAME>
 
 STEP 6: run the docker command to push the image to docker hub.
 
-	 -> docker push v3nkys/file-to-image:latest
+	 -> docker push <USERNAME>/<IMAGE_NAME>:<TAG_NAME>
 
 STEP 7: perform these steps to push the changes to github and don't forget that entering username/password is deprecated. Hence creating tokens is adviced.
 
@@ -27,9 +27,9 @@ STEP 7: perform these steps to push the changes to github and don't forget that 
 	-> git commit -m "msg"
 	-> git branch -M main
 	-> git remote add origin https://github.com/USER_NAME/REPO_NAME.git
-	-> git push https://<your-token>@github.com/USER_NAME/REPO_NAME.git
+	-> git push https://<YOUR_TOKEN>@github.com/USER_NAME/REPO_NAME.git
 
-STEP 8: edit .bashrc in your home dir with below changes, to see which branch you are in
+STEP 8: edit ~/.bashrc in your home directory with below changes, to see which branch you are in
 
 	# Function to show current Git branch
 	parse_git_branch() {
@@ -44,6 +44,6 @@ STEP 8: edit .bashrc in your home dir with below changes, to see which branch yo
 
 STEP 9: change your global configs to push the code to github under your username otherwise it will be ubuntu
 
-	o git config --global user.name "username"
-	o git config --global user.email "email_address"
+	-> git config --global user.name "<USERNAME>"
+	-> git config --global user.email "<EMAIL_ADDRESS>"
 
