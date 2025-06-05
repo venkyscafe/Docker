@@ -8,7 +8,7 @@ Theory Part
 
 	To solve this problem, Docker introduced a concept called multi-stage builds. With this approach, we can separate the build process from the final image. For example, we can use one stage to build the frontend, another to build the backend, and another to prepare the database. Then, in the final stage, we only copy the required files from each of these stages as aliases into a clean and minimal image that includes only the things needed to run the app, like Python or Java runtime.
 
-This helps us keep the final image small, secure, and optimised for production.
+	This helps us keep the final image small, secure, and optimised for production.
 
 Practical Part
 
