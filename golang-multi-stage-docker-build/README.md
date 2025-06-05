@@ -50,6 +50,5 @@ Practical Part
 
 	Conclusion: Upon comparing the image size of an image with multistage against an image without multistage, we can notice a huge variance of 32,275%.
 
-	![image](https://github.com/user-attachments/assets/af6c5648-b79d-41ee-a8e9-8aa537abd7ec)
-
+![image](https://github.com/user-attachments/assets/af6c5648-b79d-41ee-a8e9-8aa537abd7ec)
 
