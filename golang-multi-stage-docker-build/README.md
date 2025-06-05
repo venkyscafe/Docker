@@ -12,44 +12,44 @@ Theory Part
 
 Practical Part
 
-Step 1: Go to the folder golang-multi-stage-docker-build/dockerfile-without-multistage to find the Dockerfile without multistage implementation, where you will see heavy size of image when built with the command.
+	Step 1: Go to the folder golang-multi-stage-docker-build/dockerfile-without-multistage to find the Dockerfile without multistage implementation, where you will see heavy size of image when built with the command.
 	
-	-> docker build -t image-without-multistage .
+		-> docker build -t image-without-multistage .
 
-Step 2: Run the Docker command to create a container
+	Step 2: Run the Docker command to create a container
 
-	-> docker run -d --name <CONTAINER_NAME> <IMAGE_ID>
+		-> docker run -d --name <CONTAINER_NAME> <IMAGE_ID>
 
-Step 3: Now enter into the container with the below docker command, followed by the golang command to run the calculator.go
+	Step 3: Now enter into the container with the below docker command, followed by the golang command to run the calculator.go
 
-	-> docker exec -it <CONTAINER_NAME> bash
-	or
-	-> docker exec -it <CONTAINER_NAME> /bin/bash
+		-> docker exec -it <CONTAINER_NAME> bash
+		or
+		-> docker exec -it <CONTAINER_NAME> /bin/bash
 	
-	-> go run calculator.go
+		-> go run calculator.go
 	
-Step 4: NOTE DOWN THE IMAGE SIZE OF THE image-without-multistage
+	Step 4: NOTE DOWN THE IMAGE SIZE OF THE image-without-multistage
 
-Step 5: Now go to the folder golang-multi-stage-docker-build to find the Dockerfile with multistage implementation, where you will see the lightweight size of the image when built with the command.
+	Step 5: Now go to the folder golang-multi-stage-docker-build to find the Dockerfile with multistage implementation, where you will see the lightweight size of the image when built with the command.
 
-	-> docker build -t image-with-multistage .
+		-> docker build -t image-with-multistage .
 	
-Step 5: Run the Docker command to create the container
+	Step 5: Run the Docker command to create the container
 
-	-> docker run -d --name <CONTAINER_NAME> <IMAGE_ID>
+		-> docker run -d --name <CONTAINER_NAME> <IMAGE_ID>
 	
-Step 6: Now enter into the container with the Docker command below, followed by Golang command to run the calculator.go
+	Step 6: Now enter into the container with the Docker command below, followed by Golang command to run the calculator.go
 
-	-> docker exec -it <CONTAINER_NAME> bash
-	or
-	-> docker exec -it <CONTAINER_NAME> /bin/bash
+		-> docker exec -it <CONTAINER_NAME> bash
+		or
+		-> docker exec -it <CONTAINER_NAME> /bin/bash
 	
-	-> go run calculator.go
+		-> go run calculator.go
 	
-Step 7: NOTE DOWN THE IMAGE SIZE OF THE image-with-multistage
+	Step 7: NOTE DOWN THE IMAGE SIZE OF THE image-with-multistage
 
-Conclusion: Upon comparing the image size of an image with multistage against an image without multistage, we can notice a huge variance of 32,275%.
+	Conclusion: Upon comparing the image size of an image with multistage against an image without multistage, we can notice a huge variance of 32,275%.
 
-![image](https://github.com/user-attachments/assets/af6c5648-b79d-41ee-a8e9-8aa537abd7ec)
+	![image](https://github.com/user-attachments/assets/af6c5648-b79d-41ee-a8e9-8aa537abd7ec)
 
 
