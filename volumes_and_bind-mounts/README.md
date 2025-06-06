@@ -68,7 +68,7 @@ Practical Part
 		CMD -> docker inspect <CONTAINER_NAME>
 		EX  -> docker inspect volume_container
 
-  	Step 9: We can access the data created in the /app directory of the container from the host machine in the path, but you can access this path as root
+  	Step 9:	We can access the data created in the /app directory of the container from the host machine, but this path will require root privileges to access
 
    		CMD -> sudo -s
 
