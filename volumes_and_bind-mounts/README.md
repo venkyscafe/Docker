@@ -85,4 +85,5 @@ Practical Part
       		CMD -> docker exec <CONTAINER_NAME> ls -ltr <APP_DIR>
       		EX  -> docker exec volume_container ls -ltr /app
 
-![image](https://github.com/user-attachments/assets/854e81f1-d32e-4ff5-8fda-bba49582038c)
+![image](https://github.com/user-attachments/assets/38c6ac32-dc89-4ac0-8f6d-a5e676fb80bb)
+
