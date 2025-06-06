@@ -16,11 +16,11 @@ There is a subtle but important difference between the two ways to define mounts
 
 -v (short syntax): A concise way to define mounts, suitable for simple use cases.
 	
-	CMD -> docker run -v myvolume:/app/data mycontainer
+ CMD -> docker run -v myvolume:/app/data mycontainer
 	
 --mount (long syntax): A more verbose and readable option, especially helpful for complex scenarios.
 
-	CMD -> docker run --mount type=volume,source=myvolume,target=/app/data mycontainer
+ CMD -> docker run --mount type=volume,source=myvolume,target=/app/data mycontainer
 
 While both serve the same core purpose—attaching storage to containers—--mount is preferred in production environments for its clarity, explicitness, and flexibility.
 
@@ -58,10 +58,10 @@ Practical Part
 	Step 7: Run the below command to mount the volume with --mount command to create more verbosity in -d detach mode
 
 		CMD -> docker run -d --mount source=<VOLUME_NAME>,target=<APP_DIR> --name <CONTAINER_NAME> <IMAGE_NAME>:<TAG> (DEFAULT:READ-WRITE)
-		EX  -> docker run -d --mount source=venky_volume,target=/app --name volume_container volume_image:latest (DEFAULT:READ-WRITE)
+		EX  -> docker run -d --mount source=venky_volume,target=/app --name volume_container volume_image:latest
 		
 		CMD -> docker run -d --mount source=<VOLUME_NAME>,target=<APP_DIR>,<READONLY> --name <CONTAINER_NAME> <IMAGE_NAME>:<TAG> (READONLY MODE)
-		EX  -> docker run -d --mount source=venky_volume,target=/app,readonly --name volume_container volume_image:latest (READONLY MODE)
+		EX  -> docker run -d --mount source=venky_volume,target=/app,readonly --name volume_container volume_image:latest
 		
 	Step 8: using the inspect command we can find out the container's volume details that we have created 
 
