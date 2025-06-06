@@ -1,4 +1,4 @@
-# _DOCKER NETOWRKING_
+# _DOCKER NETWORKING_
 
 ## _Theory Part_
 
@@ -7,9 +7,9 @@ Basically each container may have to communicate with either host or with anothe
 In case of VMs, they are isolated at the hardware level by the hypervisor, each with its own operating system and resources. Communication between VMs usually happens over a virtual network and requires them to be in the same subnet or to have proper routing rules and firewall configurations if they are in different subnets or VPCs.
 
 
-***<ins>Bridge Networking</ins>***: Usually there shouldn't be a network communication between the host & containers due to the differnce in their subnets, hence docker came up with `***<ins>Bridge Networking</ins>***` concept where docker creates a virtual network `veth0 (docker0)` and can communicate with host/container's `eth0`. If there are any unnecessary changes or if anyone deletes the Bridge Networking, the containers would never talk to the host. Without `***<ins>Bridge Networking</ins>***` it nullifies the purpose of your application inside the container serving the user will be void. 
+***<ins>Bridge Network</ins>***: Usually there shouldn't be a network communication between the host & containers due to the differnce in their subnets, hence docker came up with ***<ins>`Bridge Network`</ins>*** concept where docker creates a virtual network `veth0 (docker0)` and can communicate with host/container's `eth0`. If there are any unnecessary changes to the Bridge Network config or if anyone deletes it, the containers would never talk to the host. Without it nullifies the purpose of your application inside the container serving the user will be void. 
 
-In case of logically isolated containers, out of the box `***<ins>Bridge Networking</ins>***` is not feasible as it won't provide any security and is vulnerable for hacker attacks. For this case we can create our own `***<ins>Custom Bridge Networking</ins>***` using `docker network` command which will isolate the container(s) from others where it won't interact with `veth0 (docker0)`.
+In case of logically isolated containers, out of the box Bridge Network is not feasible as it won't provide any security and is vulnerable for hacker attacks. For this case we can create our own ***<ins>`Custom Network`</ins>*** using ***<ins>`Docker Bridge Network`</ins>*** command which will isolate the container(s) from others where it won't interact with veth0 (docker0).
 
 ## _Practical Part_
 
@@ -36,7 +36,7 @@ EX  -> docker run -d --name logout ubuntu:latest bash -c "while true; do sleep 3
 Step 3: Now try to get the ip address of the containers that we have created, even though the containers are created from the host they would have serial CIDR subnet IP's such as - 172.17.0.2, 172.17.0.3, 172.17.0.4, so on and so forth. Still its always a good practice to use the following command to get the IP address in case if we have too many containers. 
 
 > [!NOTE]
-> using `docker inspect` along with `grep -i` to ignore case sensitive and `grep -E' for enables extended regular expressions. 
+> using `docker inspect` along with `grep -i` & `grep -E` to ignore case sensitive and enabling extended regular expressions. 
 
 ```
 CMD -> docker inspect <CONTAINER_NAME1> <CONTAINER_NAME2> <CONTAINER_NAME3> | grep -Ei '"ipaddress":|"networkmode":'
@@ -117,4 +117,4 @@ EX  -> docker run -it --name host --network host nginx:latest
 Step 12: Now if you try to go inside any of the login/logout containers and post installation of iputils-ping, we won't be able to ping upi_payment container as it will be created in a different subnet and vice-versa for upi_payment.
 
 > [!IMPORTANT]
-> In this way we will achive communication and logically isolated containers using Docker Default Bridge & Custom Network.
+> In this way we can achive communication and logically isolated containers using Docker Default Bridge & Custom Network Bridge.
