@@ -8,9 +8,9 @@ Example 3: Suppose a cron job runs on the host machine and generates daily data 
 	
 To address the above daily use cases, Docker introduced the concepts of volumes and bind mounts. While both serve the same purpose of providing persistent storage, volumes offer better security compared to bind mounts, as bind mounts require exposing specific host directories (e.g., /app) to the container.
 	
-		-> Bind Mounts : As the name suggests, a bind mount creates a direct link between a specific directory on the host machine and a specific directory inside the container. Any changes made within the container to that directory are reflected on the host, and vice versa.Even if the container stops or is removed, the data remains intact on the host. This makes bind mounts useful for scenarios where the same host directory needs to be reused across containers, ensuring data persistence.
+		-> Bind Mounts: As the name suggests, a bind mount creates a direct link between a specific directory on the host machine and a specific directory inside the container. Any changes made within the container to that directory are reflected on the host, and vice versa. Even if the container stops or is removed, the data remains intact on the host. This makes bind mounts useful for scenarios where the same host directory needs to be reused across containers, ensuring data persistence.
 		
-		-> Volumes : A Docker volume is a storage mechanism managed by the Docker engine. It typically resides on the host machine (e.g., local disk or EC2 instance) and can be mounted to one or more containers, allowing data to persist across container restarts or deletions. Volumes are ideal for high-performance, read/write-intensive workloads and are easier to manage, back up, and migrate compared to bind mounts. They also offer better security and abstraction, as they're not directly linked to host file paths.
+		-> Volumes: A Docker volume is a storage mechanism managed by the Docker engine. It typically resides on the host machine (e.g., local disk or EC2 instance) and can be mounted to one or more containers, allowing data to persist across container restarts or deletions. Volumes are ideal for high-performance, read/write-intensive workloads and are easier to manage, back up, and migrate compared to bind mounts. They also offer better security and abstraction, as they're not directly linked to host file paths.
 
 There is a subtle but important difference between the two ways to define mounts in Docker:
 
@@ -26,16 +26,16 @@ While both serve the same core purpose—attaching storage to containers—--mou
 
 Practical Part
 
-	Step 1: Using the below Docker command we can list out the volumes 
+	Step 1: Using the Docker command below, we can list out the volumes 
 		
 		CMD -> docker volume ls
 
-	Step 2: Using the below Docker command to create a volume
+	Step 2: Use the Docker command below to create a volume
 
 		CMD -> docker volume create <VOLUME_NAME> 
 		EX  -> docker volume create venky_volume
 
-	Step 3: Using the below Docker command we can get the specific <VOLUME_NAME> details
+	Step 3: Using the Docker command below, we can get the specific <VOLUME_NAME> details
 
 		CMD -> docker volume inspect <VOLUME_NAME>
 		EX  -> docker volume inspect venky_volume
@@ -45,17 +45,17 @@ Practical Part
 		CMD -> docker volume rm <VOLUME_NAME1> <VOLUME_NAME2>
 		EX  -> docker volume rm venky_volume
 
-	Step 5: Create a simple Docker file with ubuntu as base image to create an Image and then a container to attach it to the volume <VOLUME_NAME>. 
+	Step 5: Create a simple Docker file with Ubuntu as base image to create an Image and then a container to attach it to the volume <VOLUME_NAME>. 
 
 		CMD -> FROM <IMAGE_NAME>:<TAG>
 		EX  -> FROM ubuntu:latest
 		
-	Step 6: Now, build the image from the Docker file with below command
+	Step 6: Now, build the image from the Docker file with the below command
 
 		CMD -> docker build -t <IMAGE_NAME>:<TAG> .
 		EX  -> docker build -t volume_image .
 		
-	Step 7: Run the below command to mount the volume with --mount command to create more verbosity in -d detach mode
+	Step 7: Run the below command to mount the volume with the --mount command to create more verbosity in -d detach mode
 
 		CMD -> docker run -d --mount source=<VOLUME_NAME>,target=<APP_DIR> --name <CONTAINER_NAME> <IMAGE_NAME>:<TAG> (DEFAULT:READ-WRITE)
 		EX  -> docker run -d --mount source=venky_volume,target=/app --name volume_container volume_image:latest
@@ -63,7 +63,7 @@ Practical Part
 		CMD -> docker run -d --mount source=<VOLUME_NAME>,target=<APP_DIR>,<READONLY> --name <CONTAINER_NAME> <IMAGE_NAME>:<TAG> (READONLY MODE)
 		EX  -> docker run -d --mount source=venky_volume,target=/app,readonly --name volume_container volume_image:latest
 		
-	Step 8: using the inspect command we can find out the container's volume details that we have created 
+	Step 8: Using the inspect command, we can find out the container's volume details that we have created 
 
 		CMD -> docker inspect <CONTAINER_NAME>
 		EX  -> docker inspect volume_container
