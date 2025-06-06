@@ -70,6 +70,6 @@ Practical Part
 
   	Step 9: We can access the data created in the /app directory of the container from the host machine in the path, but you can access this path as root
    		CMD -> sudo -s
-    	and followed by
+    and followed by
 		CMD -> /var/lib/docker/volumes/<VOLUME_NAME>/_data
-    		EX  -> /var/lib/docker/volumes/venky_volume/_data
+        EX  -> /var/lib/docker/volumes/venky_volume/_data
