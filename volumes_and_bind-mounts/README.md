@@ -75,5 +75,5 @@ Practical Part
     and followed by
 
 		CMD -> /var/lib/docker/volumes/<VOLUME_NAME>/_data
-        EX  -> /var/lib/docker/volumes/venky_volume/_data
+        	EX  -> /var/lib/docker/volumes/venky_volume/_data
 
