@@ -74,6 +74,15 @@ Practical Part
 
     and followed by
 
-		CMD -> /var/lib/docker/volumes/<VOLUME_NAME>/_data
-        	EX  -> /var/lib/docker/volumes/venky_volume/_data
+		CMD -> cd /var/lib/docker/volumes/<VOLUME_NAME>/_data
+        	EX  -> cd /var/lib/docker/volumes/venky_volume/_data
+	 
+  	Step 10: We can see the same data from the container with the following command
 
+    		CMD -> docker exec -it <CONTAINER_NAME> ls -ltr <APP_DIR>
+      		EX  -> docker exec -it volume_container ls -ltr /app
+		or
+      		CMD -> docker exec <CONTAINER_NAME> ls -ltr <APP_DIR>
+      		EX  -> docker exec volume_container ls -ltr /app
+
+![image](https://github.com/user-attachments/assets/854e81f1-d32e-4ff5-8fda-bba49582038c)
