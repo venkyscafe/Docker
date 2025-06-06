@@ -6,15 +6,15 @@
 
 ***<ins>Example 2</ins>***: Imagine a backend container generates data in formats like JSON, XML, or YAML on a daily basis. A frontend container is expected to read and display this data to the user. Without persistent storage, if the backend container goes down, all the generated records are lost, impacting data integrity and user experience.
 
-***Example 3***: Suppose a cron job runs on the host machine and generates daily data files (JSON/XML/YAML/HTML). We may want an application running in a Docker container to access and display this data. This requires the container to access a shared directory from the host.
+***<ins>Example 3</ins>***: Suppose a cron job runs on the host machine and generates daily data files (JSON/XML/YAML/HTML). We may want an application running in a Docker container to access and display this data. This requires the container to access a shared directory from the host.
 	
 To address the above daily use cases, Docker introduced the concepts of volumes and bind mounts. While both serve the same purpose of providing persistent storage, volumes offer better security compared to bind mounts, as bind mounts require exposing specific host directories (e.g., /app) to the container.
 	
 > [!NOTE]
-> Bind Mounts: As the name suggests, a bind mount creates a direct link between a specific directory on the host machine and a specific directory inside the container. Any changes made within the container to that directory are reflected on the host, and vice versa. Even if the container stops or is removed, the data remains intact on the host. This makes bind mounts useful for scenarios where the same host directory needs to be reused across containers, ensuring data persistence.
+> ***<ins>Bind Mounts</ins>***: As the name suggests, a bind mount creates a direct link between a specific directory on the host machine and a specific directory inside the container. Any changes made within the container to that directory are reflected on the host, and vice versa. Even if the container stops or is removed, the data remains intact on the host. This makes bind mounts useful for scenarios where the same host directory needs to be reused across containers, ensuring data persistence.
 
 > [!NOTE]
-> Volumes: A Docker volume is a storage mechanism managed by the Docker engine. It typically resides on the host machine (e.g., local disk or EC2 instance) and can be mounted to one or more containers, allowing data to persist across container restarts or deletions. Volumes are ideal for high-performance, read/write-intensive workloads and are easier to manage, back up, and migrate compared to bind mounts. They also offer better security and abstraction, as they're not directly linked to host file paths.
+> ***<ins>Volumes</ins>***: A Docker volume is a storage mechanism managed by the Docker engine. It typically resides on the host machine (e.g., local disk or EC2 instance) and can be mounted to one or more containers, allowing data to persist across container restarts or deletions. Volumes are ideal for high-performance, read/write-intensive workloads and are easier to manage, back up, and migrate compared to bind mounts. They also offer better security and abstraction, as they're not directly linked to host file paths.
 
 > [!IMPORTANT]
 > There is a subtle but important difference between the two ways to define mounts in Docker:
